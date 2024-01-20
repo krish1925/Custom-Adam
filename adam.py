@@ -120,15 +120,15 @@ def Adam(x, y, epochs, batch_size, loss, lr,lambdaa, clip_value=None, lr_schedul
 
 
 def test():
-    x = np.linspace(-1, 1, 100) 
+    x = np.linspace(-1, 1, 100) # Generating random points for testing
     true_w, true_b = 2, -1
     y = sigmoid(x, true_w, true_b) 
     #initialize here
     epochs = 100
     batch_size = 10
-    loss_type = "MSE" #or CE is using multiclass
+    loss_type = "MSE" #or CE for multiclass
     learning_rate = 0.1
-    lambda_reg = 0.01  #regularization coefficient
+    lambda_reg = 0.01  #regularization coefficient # change if needed
     loss_func, grad_w_func, grad_b_func = select_loss_gradients(loss_type)
     w_list, b_list, l_list = Adam(x, y, epochs, batch_size, loss_func, learning_rate, lambda_reg)
     plt.legend()
